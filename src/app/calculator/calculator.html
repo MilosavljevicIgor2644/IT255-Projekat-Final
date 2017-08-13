@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Kalkulator teretana</h1>
+    <form role="form" [formGroup] = "calculatorForm">
+        <div class="form-group">
+            <label for="level">Vaš nivo fizičke spreme je?</label>
+            <select name="level" class="form-control"  formControlName="level">
+                <option value="pocetnik" class="selected">Pocetnik</option>
+                <option value="srednji">Srednji</option>
+                <option value="napredni">Napredni</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="goal">Vaš cilj je?</label>
+            <select name="goal" class="form-control"  formControlName="goal">
+                <option value="mrsavljenje">Mršavljenje</option>
+                <option value="masa">Povećanje mišićne mase</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="trener">Volim trenirati:</label>
+            <select name="trener" class="form-control" formControlName="trainer">
+                <option value="ne">Sam</option>
+                <option value="da">Sa trenerom</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="minPrice">Najmanja cena:</label>
+            <input type="number" name="minPrice" class="form-control" formControlName="minPrice">
+        </div>
+                
+        <div class="form-group">
+            <label for="maxPrice">Najveca cena:</label>
+            <input type="number" name="maxPrice" class="form-control" formControlName="maxPrice">
+        </div>
+
+        <button (click) = "onCalculate()" class="btn btn-default">Unesi</button>
+    </form>
+
+    <h1>Teretane za vas:</h1>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let gym of gyms">
+            <h3>{{gym.Name}}</h3>
+            <p>{{gym.description}}</p>
+            <p>Cena: {{gym.price}}</p>
+        </li>
+    </ul> 
+</div>

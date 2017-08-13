@@ -1,0 +1,29 @@
+<nav class= "navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigacija">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Gym Bro</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navigacija">
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="/calculator">Pronađite teretanu</a></li>
+                <li><a routerLink="/addGym">Dodajte teretanu</a></li>
+                <li><a routerLink="/showGym">Pregled teretana</a></li>
+            </ul>
+            <ul *ngIf="!isLoggedIn" class="nav navbar-nav navbar-right">
+                <li><a routerLink="/register">Registracija</a></li>
+                <li><a routerLink="/login">Logovanje</a></li>
+            </ul>
+            <ul *ngIf="isLoggedIn" class="nav navbar-nav navbar-right">
+                <li><a (click) = "onLogout()">Izlogujte se</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
